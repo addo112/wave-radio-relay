@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: wave-radio-relay
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: DJ_PASSWORD
+        value: waveradio2024
+      - key: NODE_ENV
+        value: production
+      - key: MAX_LISTENERS
+        value: "500"
+    healthCheckPath: /health
